@@ -10,8 +10,8 @@ const navItems = [
     href: "/",
   },
   {
-    label: "blog",
-    href: "/blog",
+    label: "blogs",
+    href: "/blogs",
   },
   {
     label: "About",
@@ -20,25 +20,6 @@ const navItems = [
 ];
 
 export function Header() {
-  //   const { data: session } = useSession();
-
-  //   return (
-  //     <nav>
-  //       <Link href="/">Home</Link>
-  //       {session && (
-  //         <>
-  //           <Link href="/todolist">ToDoList</Link>
-  //           <Link href="/profile">Profile</Link>
-  //         </>
-  //       )}
-  //       <Link href="/blogs">Blogs</Link>
-  //       {session ? (
-  //         <button onClick={() => signOut()}>Sign Out</button>
-  //       ) : (
-  //         <button onClick={() => signIn()}>Sign In</button>
-  //       )}
-  //     </nav>
-  //   );
   return (
     <header>
       <Navigation navLinks={navItems} />
