@@ -18,7 +18,6 @@ const initialState: BlogsState = {
   status: "idle",
 };
 
-// Асинхронный запрос для загрузки всех блогов
 export const fetchBlogs = createAsyncThunk("blogs/fetchBlogs", async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   return response.json();
@@ -43,7 +42,7 @@ const blogsSlice = createSlice({
       .addCase(fetchBlogs.fulfilled, (state, action) => {
         state.status = "idle";
         state.blogs = action.payload;
-        state.filteredBlogs = action.payload; // По умолчанию показываем все
+        state.filteredBlogs = action.payload;
       })
       .addCase(fetchBlogs.rejected, (state) => {
         state.status = "failed";

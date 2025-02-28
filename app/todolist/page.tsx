@@ -1,3 +1,5 @@
-export default function ToDoList() {
-  return <h1>ToDo List (Приватная страница)</h1>;
+import ToDoList from "@/components/ToDoList";
+
+export default function ToDoListPage() {
+  return <ToDoList />;
 }

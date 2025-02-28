@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import blogsReducer from "./slices/blogsSlice";
+import todoReducer from "./slices/todoSlice";
 
 export const store = configureStore({
   reducer: {
     blogs: blogsReducer,
+    todo: todoReducer,
   },
 });
 
