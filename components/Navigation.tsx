@@ -1,45 +1,47 @@
 'use client';
+
 import { signOut, useSession } from 'next-auth/react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { NavItem } from './NavItem'; // Импортируем компонент NavItem
+import block from 'bem-css-modules';
+import styles from './Navigation.module.scss';
+
+const b = block(styles);
 
 type NavLink = {
   label: string;
   href: string;
 };
-type props = {
+
+type Props = {
   navLinks: NavLink[];
 };
 
-const Navigation = ({ navLinks }: props) => {
-  const pathname = usePathname();
+const Navigation = ({ navLinks }: Props) => {
   const session = useSession();
-  console.log(session);
 
   return (
-    <>
-      {navLinks.map((link) => {
-        const isActive = pathname === link.href;
-        return (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={isActive ? 'active' : ''}
-          >
-            {link.label}
-          </Link>
-        );
-      })}
-      {session?.data && <Link href={'/todolist'}>Todo</Link>}
-      {session?.data && <Link href={'/profile'}>Profile</Link>}
-      {session?.data ? (
-        <Link href={'#'} onClick={() => signOut({ callbackUrl: '/' })}>
-          {`Sign out (${session.data.user?.name})`}
-        </Link>
-      ) : (
-        <Link href={'/signin'}>Sign in</Link>
-      )}
-    </>
+    <nav className={b('')}>
+      <ul className={b('list')}>
+        {navLinks.map((link) => (
+          <NavItem key={link.href} href={link.href} label={link.label} />
+        ))}
+
+        {session?.data ? (
+          <>
+            <NavItem href="/todolist" label="Todo" />
+            <NavItem href="/profile" label="Profile" />
+
+            <NavItem
+              href="#"
+              label={`Sign out (${session.data.user?.name})`}
+              onClick={() => signOut({ callbackUrl: '/' })}
+            />
+          </>
+        ) : (
+          <NavItem href="/signin" label="Sign in" />
+        )}
+      </ul>
+    </nav>
   );
 };
 
