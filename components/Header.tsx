@@ -11,10 +11,6 @@ const navItems = [
     label: 'Blogs',
     href: '/blogs',
   },
-  {
-    label: 'About',
-    href: '/about',
-  },
 ];
 
 export function Header() {
