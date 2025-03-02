@@ -1,16 +1,16 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchBlogs, filterBlogs } from "@/store/slices/blogsSlice";
-import { RootState, AppDispatch } from "@/store";
-import Link from "next/link";
+'use client';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBlogs, filterBlogs } from '@/store/slices/blogsSlice';
+import { RootState, AppDispatch } from '@/store';
+import Link from 'next/link';
 
 export default function Blogs() {
   const dispatch = useDispatch<AppDispatch>();
   const { filteredBlogs, status } = useSelector(
     (state: RootState) => state.blogs
   );
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     dispatch(fetchBlogs());
@@ -21,8 +21,8 @@ export default function Blogs() {
     dispatch(filterBlogs(event.target.value));
   };
 
-  if (status === "loading") return <p>Loading...</p>;
-  if (status === "failed") return <p>Failed to load blogs.</p>;
+  if (status === 'loading') return <p>Loading...</p>;
+  if (status === 'failed') return <p>Failed to load blogs.</p>;
 
   return (
     <div>

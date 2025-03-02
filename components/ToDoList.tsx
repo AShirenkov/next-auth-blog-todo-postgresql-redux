@@ -1,14 +1,19 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "@/store/index";
-import { fetchTodos, addTodo, deleteTodo } from "@/store/slices/todoSlice";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from '@/store/index';
+import { fetchTodos, addTodo, deleteTodo } from '@/store/slices/todoSlice';
+import block from 'bem-css-modules';
+import styles from './ToDoList.module.scss';
+import ToDoItem from './ToDoItem';
+
+const b = block(styles);
 
 export default function ToDoList() {
   const dispatch = useDispatch<AppDispatch>();
   const todos = useSelector((state: RootState) => state.todo.todos);
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState('');
 
   useEffect(() => {
     dispatch(fetchTodos());
@@ -17,7 +22,7 @@ export default function ToDoList() {
   const handleAdd = () => {
     if (task.trim()) {
       dispatch(addTodo(task));
-      setTask("");
+      setTask('');
     }
   };
 
@@ -26,23 +31,34 @@ export default function ToDoList() {
   };
 
   return (
-    <div>
-      <h1>ToDo List</h1>
-      <input
-        type="text"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        placeholder="New task..."
-      />
-      <button onClick={handleAdd}>Add Task</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.text}
-            <button onClick={() => handleDelete(todo.id)}>❌</button>
-          </li>
-        ))}
-      </ul>
+    <div className={b('')}>
+      <h1 className={b('title')}>ToDo List</h1>
+      <div className={b('input-container')}>
+        <input
+          type="text"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="New task..."
+          className={b('input')}
+        />
+        <button onClick={handleAdd} className={b('button', { add: true })}>
+          Add Task
+        </button>
+      </div>
+      {todos.length === 0 ? (
+        <p className={b('empty-message')}>No tasks yet. Add your first task!</p>
+      ) : (
+        <ul className={b('list')}>
+          {todos.map((todo) => (
+            <ToDoItem
+              key={todo.id}
+              id={todo.id}
+              text={todo.text}
+              onDelete={handleDelete}
+            />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

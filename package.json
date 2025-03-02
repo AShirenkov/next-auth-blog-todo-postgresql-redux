@@ -6,11 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:styles": "stylelint '**/*.scss' --fix"
   },
   "dependencies": {
     "@prisma/client": "^6.4.1",
     "@reduxjs/toolkit": "^2.6.0",
+    "bem-css-modules": "^1.4.3",
     "next": "15.2.0",
     "next-auth": "^4.24.11",
     "prisma": "^6.4.1",
@@ -26,6 +28,11 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
+    "eslint-config-prettier": "^10.0.2",
+    "prettier": "^3.5.2",
+    "stylelint": "^16.15.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-scss": "^6.11.1",
     "typescript": "^5"
   }
 }

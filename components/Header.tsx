@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { Navigation } from "./Navigation";
+import { Navigation } from './Navigation';
 
 const navItems = [
   {
-    label: "Home",
-    href: "/",
+    label: 'Home',
+    href: '/',
   },
   {
-    label: "blogs",
-    href: "/blogs",
+    label: 'blogs',
+    href: '/blogs',
   },
   {
-    label: "About",
-    href: "/about",
+    label: 'About',
+    href: '/about',
   },
 ];
 

@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "rules": {
+    "color-hex-length": "short",
+    "block-no-empty": true,
+    "selector-class-pattern": "^[a-z][a-z0-9-_]+$",
+    "scss/dollar-variable-pattern": "^([a-z][a-z0-9-]*)$",
+    "scss/at-mixin-pattern": "^[a-z][a-z0-9-]*$",
+    "scss/at-function-pattern": "^[a-z][a-z0-9-]*$",
+    "scss/percent-placeholder-pattern": "^[a-z][a-z0-9-]*$"
+  }
+}
