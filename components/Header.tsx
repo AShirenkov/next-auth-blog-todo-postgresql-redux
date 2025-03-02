@@ -8,7 +8,7 @@ const navItems = [
     href: '/',
   },
   {
-    label: 'blogs',
+    label: 'Blogs',
     href: '/blogs',
   },
   {

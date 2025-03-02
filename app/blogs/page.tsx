@@ -1,9 +1,13 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import block from 'bem-css-modules';
+
 import { fetchBlogs, filterBlogs } from '@/store/slices/blogsSlice';
 import { RootState, AppDispatch } from '@/store';
-import Link from 'next/link';
+import BlogItem from '@/components/BlogItem';
+import styles from './Blogs.module.scss';
 
 export default function Blogs() {
   const dispatch = useDispatch<AppDispatch>();
@@ -11,6 +15,8 @@ export default function Blogs() {
     (state: RootState) => state.blogs
   );
   const [searchTerm, setSearchTerm] = useState('');
+
+  const b = block(styles);
 
   useEffect(() => {
     dispatch(fetchBlogs());
@@ -21,25 +27,29 @@ export default function Blogs() {
     dispatch(filterBlogs(event.target.value));
   };
 
-  if (status === 'loading') return <p>Loading...</p>;
-  if (status === 'failed') return <p>Failed to load blogs.</p>;
+  if (status === 'loading') return <p className={b('loading')}>Loading...</p>;
+  if (status === 'failed')
+    return <p className={b('error')}>Failed to load blogs.</p>;
 
   return (
-    <div>
-      <h1>Blogs</h1>
+    <div className={b('')}>
+      <h1 className={b('title')}>Blogs</h1>
       <input
+        className={b('search')}
         type="text"
         placeholder="Search blogs..."
         value={searchTerm}
         onChange={handleSearch}
       />
-      {filteredBlogs.map((blog) => (
-        <div key={blog.id}>
-          <h2>
-            <Link href={`/blogs/${blog.id}`}>{blog.title}</Link>
-          </h2>
-        </div>
-      ))}
+      <div className={b('list')}>
+        {filteredBlogs.length > 0 ? (
+          filteredBlogs.map((blog) => (
+            <BlogItem key={blog.id} title={blog.title} id={blog.id} />
+          ))
+        ) : (
+          <p className={b('empty')}>No blogs found.</p>
+        )}
+      </div>
     </div>
   );
 }
