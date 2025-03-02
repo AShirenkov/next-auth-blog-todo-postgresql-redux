@@ -3,8 +3,14 @@ import { getServerSession } from 'next-auth';
 import Image from 'next/image';
 import block from 'bem-css-modules';
 import styles from './Profile.module.scss';
+import type { Metadata } from 'next';
 
 const b = block(styles);
+
+export const metadata: Metadata = {
+  title: 'Profile',
+  description: 'Profile card',
+};
 
 export default async function Profile() {
   const session = await getServerSession(authConfig);
