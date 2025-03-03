@@ -1,9 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '@/store/index';
-import { fetchTodos, addTodo, deleteTodo } from '@/store/slices/todoSlice';
+import { useTodoStore } from '@/store/useTodoStore';
 import block from 'bem-css-modules';
 import styles from './ToDoList.module.scss';
 import ToDoItem from './ToDoItem';
@@ -11,23 +9,18 @@ import ToDoItem from './ToDoItem';
 const b = block(styles);
 
 export default function ToDoList() {
-  const dispatch = useDispatch<AppDispatch>();
-  const todos = useSelector((state: RootState) => state.todo.todos);
+  const { todos, fetchTodos, addTodo, deleteTodo } = useTodoStore();
   const [task, setTask] = useState('');
 
   useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
+    fetchTodos();
+  }, [fetchTodos]);
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
     if (task.trim()) {
-      dispatch(addTodo(task));
+      await addTodo(task);
       setTask('');
     }
-  };
-
-  const handleDelete = (id: string) => {
-    dispatch(deleteTodo(id));
   };
 
   return (
@@ -54,7 +47,7 @@ export default function ToDoList() {
               key={todo.id}
               id={todo.id}
               text={todo.text}
-              onDelete={handleDelete}
+              onDelete={deleteTodo}
             />
           ))}
         </ul>

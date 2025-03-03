@@ -1,18 +1,17 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store';
+import { useBlogStore } from '@/store/useBlogStore';
 import block from 'bem-css-modules';
 import styles from './BlogPost.module.scss';
 
 export default function BlogPost() {
   const b = block(styles);
-
   const { id } = useParams();
-  const blog = useSelector((state: RootState) =>
-    state.blogs.blogs.find((b) => b.id === Number(id))
-  );
+
+  const blogs = useBlogStore((state) => state.blogs);
+
+  const blog = blogs.find((b) => b.id === Number(id));
 
   if (!blog) return <p className={b('error')}>Blog not found...</p>;
 

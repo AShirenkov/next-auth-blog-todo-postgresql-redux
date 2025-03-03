@@ -1,15 +1,15 @@
-# Next.js + TypeScript + PostgreSQL + Redux Toolkit
+# Next.js + TypeScript + PostgreSQL + Zustand
 
 ## Overview
 
-This project is a full-stack web application built with **Next.js**, **TypeScript**, **Redux Toolkit**, and **PostgreSQL**. It includes authentication via **NextAuth.js** (supporting Google OAuth), dynamic blogs management (with data fetched from [JSONPlaceholder](https://jsonplaceholder.typicode.com/), stored in Redux), and a ToDo list that interacts with a PostgreSQL database. The application supports private routes for authenticated users and demonstrates modern web development best practices.
+This project is a full-stack web application built with **Next.js**, **TypeScript**, **Zustand**, and **PostgreSQL**. It includes authentication via **NextAuth.js** (supporting Google OAuth), dynamic blogs management (with data fetched from [JSONPlaceholder](https://jsonplaceholder.typicode.com/), stored in Zustand), and a ToDo list that interacts with a PostgreSQL database. The application supports private routes for authenticated users and demonstrates modern web development best practices.
 
 ---
 
 ## Features
 
 - **User Authentication**: Google OAuth and email/password-based authentication via **NextAuth.js**.
-- **Redux Toolkit**: Manage application state for blogs and user authentication.
+- **Zustand**: Manage application state for blogs and user authentication.
 - **Dynamic Routing**: Automatically fetch and display blog data using dynamic routes.
 - **PostgreSQL**: A powerful relational database to store user and ToDo data, with **Prisma ORM** for database interaction.
 - **SASS Styling**: Styling using SASS for easier CSS management.
@@ -22,7 +22,7 @@ This project is a full-stack web application built with **Next.js**, **TypeScrip
 - **Next.js**: React framework for building server-rendered apps.
 - **TypeScript**: Static type checking for a more robust codebase.
 - **Prisma**: ORM for interacting with PostgreSQL.
-- **Redux Toolkit**: For state management of user authentication and blog data.
+- **Zustand**: For state management of user authentication, blog data and ToDoList.
 - **NextAuth.js**: Authentication with OAuth (Google).
 - **PostgreSQL**: A powerful relational database to store user and ToDo data.
 - **SASS**: For styling the application.
@@ -213,7 +213,7 @@ For Google OAuth, the app integrates directly with Google's OAuth2 API.
 Home: The main landing page.
 ToDoList: A page where users can create and manage tasks. Accessible only to authenticated users.
 Profile: A page displaying the user's profile information. Accessible only to authenticated users.
-Blogs: A page listing blog posts. Data is fetched from JSONPlaceholder and stored in Redux.
+Blogs: A page listing blog posts. Data is fetched from JSONPlaceholder and stored in Zustand.
 SignIn/Out: Pages for signing in and signing out, supporting Google and email/password authentication.
 
 ### Docker Commands

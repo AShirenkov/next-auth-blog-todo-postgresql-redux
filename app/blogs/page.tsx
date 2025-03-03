@@ -1,30 +1,24 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useBlogStore } from '@/store/useBlogStore';
 import block from 'bem-css-modules';
-
-import { fetchBlogs, filterBlogs } from '@/store/slices/blogsSlice';
-import { RootState, AppDispatch } from '@/store';
 import BlogItem from '@/components/BlogItem';
 import styles from './Blogs.module.scss';
 
+const b = block(styles);
+
 export default function Blogs() {
-  const dispatch = useDispatch<AppDispatch>();
-  const { filteredBlogs, status } = useSelector(
-    (state: RootState) => state.blogs
-  );
+  const { filteredBlogs, status, fetchBlogs, filterBlogs } = useBlogStore();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const b = block(styles);
-
   useEffect(() => {
-    dispatch(fetchBlogs());
-  }, [dispatch]);
+    fetchBlogs();
+  }, [fetchBlogs]);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
-    dispatch(filterBlogs(event.target.value));
+    filterBlogs(event.target.value);
   };
 
   if (status === 'loading') return <p className={b('loading')}>Loading...</p>;
