@@ -27,6 +27,7 @@ This project is a full-stack web application built with **Next.js**, **TypeScrip
 - **PostgreSQL**: A powerful relational database to store user and ToDo data.
 - **SASS**: For styling the application.
 - **Docker**: For PostgreSQL database containerization.
+- **Jest**: Testing framework for running unit and integration tests, used for testing Zustand stores and API interactions.
 
 ---
 
@@ -45,7 +46,7 @@ This project is a full-stack web application built with **Next.js**, **TypeScrip
 Start by cloning the repository to your local machine:
 
 ```bash
-git clone https://github.com/AShirenkov/next-auth-blog-todo-postgresql-redux.git
+git clone https://github.com/AShirenkov/next-auth-blog-todo-postgresql-zustand.git
 cd your-project
 ```
 
@@ -117,9 +118,47 @@ docker compose up --build
 
 This will create and start a PostgreSQL container with the specified credentials and database name.
 
-### 4. Run Prisma Migrations
+### 4. Run the Application
 
-To apply database migrations, use the following command:
+#### Development
+
+To start the application in development mode, run one of the following commands:
+
+Using Yarn:
+
+```bash
+yarn dev
+```
+
+Using npm:
+
+```bash
+npm run dev
+```
+
+This will start the development server at http://localhost:3000.
+
+#### Production
+
+To build and start the application in production mode, use the following commands:
+
+Using Yarn:
+
+```bash
+yarn build
+yarn start
+```
+
+Using npm:
+
+```bash
+npm run build
+npm run start
+```
+
+### 5. Prisma Commands
+
+If you need to run Prisma migrations or manage your database, use these commands:
 
 Using Yarn:
 
@@ -135,25 +174,63 @@ npm run prisma migrate dev
 
 This will set up the database schema.
 
-### 5. Run the Application
-
-To start the application in development mode:
+To generate Prisma client:
 
 Using Yarn:
 
 ```bash
-yarn dev
+yarn prisma generate
 ```
 
 Using npm:
 
 ```bash
-npm run dev
+npm run prisma generate
 ```
 
-The application will be available at http://localhost:3000.
+### 6. Docker commands
 
-### 6.Custom test users
+If you're using Docker to run the PostgreSQL database, here are some useful commands:
+
+To start the Docker containers:
+
+```bash
+docker compose up --build
+```
+
+This will build the Docker containers and start them, including the PostgreSQL container.
+
+To stop the Docker containers:
+
+```bash
+docker compose down
+```
+
+To rebuild and restart the Docker containers:
+
+```bash
+docker compose up --build
+```
+
+### 8. Testing
+
+To run tests for your application (e.g., Jest tests for Zustand stores):
+
+Using Yarn:
+
+```bash
+yarn test
+```
+
+Using npm:
+
+```bash
+npm run test
+```
+
+This will run the tests defined in your project.
+
+### 9. Custom test users
 
 The application comes with three test users:
 
@@ -210,23 +287,8 @@ For Google OAuth, the app integrates directly with Google's OAuth2 API.
 
 ### Routes
 
-Home: The main landing page.
-ToDoList: A page where users can create and manage tasks. Accessible only to authenticated users.
-Profile: A page displaying the user's profile information. Accessible only to authenticated users.
-Blogs: A page listing blog posts. Data is fetched from JSONPlaceholder and stored in Zustand.
-SignIn/Out: Pages for signing in and signing out, supporting Google and email/password authentication.
-
-### Docker Commands
-
-To stop the Docker containers:
-
-```bash
-docker compose down
-```
-
-To rebuild and restart the Docker containers:
-
-```bash
-docker compose up --build
-
-```
+- **Home**: The main landing page.
+- **ToDoList**: A page where users can create and manage tasks. Accessible only to authenticated users.
+- **Profile**: A page displaying the user's profile information. Accessible only to authenticated users.
+- **Blogs**: A page listing blog posts. Data is fetched from JSONPlaceholder and stored in Zustand.
+- **SignIn/Out**: Pages for signing in and signing out, supporting Google and email/password authentication.
