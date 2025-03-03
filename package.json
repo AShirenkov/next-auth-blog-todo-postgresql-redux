@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:styles": "stylelint '**/*.scss' --fix"
+    "lint:styles": "stylelint '**/*.scss' --fix",
+    "test": "jest"
   },
   "dependencies": {
     "@prisma/client": "^6.4.1",
@@ -22,16 +23,29 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/node-fetch": "^2.6.12",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/react-test-renderer": "^19.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
     "eslint-config-prettier": "^10.0.2",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "node-fetch": "^3.3.2",
     "prettier": "^3.5.2",
+    "react-test-renderer": "^19.0.0",
     "stylelint": "^16.15.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-scss": "^6.11.1",
+    "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
