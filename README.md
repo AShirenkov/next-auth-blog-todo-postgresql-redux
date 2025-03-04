@@ -37,7 +37,7 @@ This project is a full-stack web application built with **Next.js**, **TypeScrip
 ## Prerequisites
 
 - **Node.js** (version 16.x or higher)
-- **Yarn** or **npm** for dependency management
+- **Yarn** for dependency management
 - **Docker** and **Docker Compose** for setting up the PostgreSQL database
 
 ---
@@ -55,18 +55,10 @@ cd your-project
 
 ### 2. Install Dependencies
 
-Use either Yarn or npm to install project dependencies:
-
-Using Yarn:
+Use Yarn to install project dependencies:
 
 ```bash
 yarn install
-```
-
-Using npm:
-
-```bash
-npm install
 ```
 
 ### 3. Set Up Docker for PostgreSQL
@@ -79,6 +71,11 @@ env
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/mydatabase"
 GOOGLE_CLIENT_ID=your-client-id
 GOOGLE_SECRET=your-client-secret
+
+# auth config
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="superpupersecret"
+
 ```
 
 Note: Replace your-client-id and your-client-secret with your actual Google OAuth credentials.
@@ -127,16 +124,8 @@ This will create and start a PostgreSQL container with the specified credentials
 
 To start the application in development mode, run one of the following commands:
 
-Using Yarn:
-
 ```bash
 yarn dev
-```
-
-Using npm:
-
-```bash
-npm run dev
 ```
 
 This will start the development server at http://localhost:3000.
@@ -145,57 +134,32 @@ This will start the development server at http://localhost:3000.
 
 To build and start the application in production mode, use the following commands:
 
-Using Yarn:
-
 ```bash
 yarn build
 yarn start
-```
-
-Using npm:
-
-```bash
-npm run build
-npm run start
 ```
 
 ### 5. Prisma Commands
 
 If you need to run Prisma migrations or manage your database, use these commands:
 
-Using Yarn:
-
 ```bash
 yarn prisma migrate dev
-```
-
-Using npm:
-
-```bash
-npm run prisma migrate dev
 ```
 
 This will set up the database schema.
 
 To generate Prisma client:
 
-Using Yarn:
-
 ```bash
 yarn prisma generate
-```
-
-Using npm:
-
-```bash
-npm run prisma generate
 ```
 
 ### 6. Docker commands
 
 If you're using Docker to run the PostgreSQL database, here are some useful commands:
 
-To start the Docker containers:
+To start, rebuild and restart the Docker containers:
 
 ```bash
 docker compose up --build
@@ -209,76 +173,12 @@ To stop the Docker containers:
 docker compose down
 ```
 
-To rebuild and restart the Docker containers:
-
-```bash
-docker compose up --build
-```
-
 ### 8. Testing
 
 To run tests for your application (e.g., Jest tests for Zustand stores):
 
-Using Yarn:
-
 ```bash
 yarn test
-```
-
-Using npm:
-
-```bash
-npm run test
-```
-
-This will run the tests defined in your project.
-
-### 9. Custom test users
-
-The application comes with three test users:
-
-```bash
-export const users = [
-  {
-    id: "1",
-    email: "test_user1@gmail.com",
-    name: "Test User1",
-    password: "12345",
-  },
-  {
-    id: "2",
-    email: "test_user2@gmail.com",
-    name: "Test User2",
-    password: "12345",
-  },
-  {
-    id: "3",
-    email: "guest@gmail.com",
-    name: "Test Guest",
-    password: "12345",
-  },
-];
-```
-
-### Database Schema
-
-This is the Prisma schema for the database:
-
-```bash
-model User {
-id String @id @default(uuid())
-name String?
-email String @unique
-image String?
-todos ToDo[]
-}
-
-model ToDo {
-id String @id @default(uuid())
-text String
-user User @relation(fields: [userId], references: [id])
-userId String
-}
 ```
 
 ### Authentication
