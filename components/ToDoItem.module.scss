@@ -1,9 +1,5 @@
 @use "sass:color";
-
-$primary-color: #4caf50;
-$danger-color: #e74c3c;
-$background-color: #f4f4f4;
-$text-color: #333;
+@import '@/styles/colors';
 
 .todo {
     &__button {
@@ -16,7 +12,7 @@ $text-color: #333;
 
         &_delete {
             background: $danger-color;
-            color: white;
+            color: $secondary-color;
 
             &:hover {
                 background: color.adjust($danger-color, $lightness: -10%);
@@ -28,7 +24,7 @@ $text-color: #333;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: $background-color;
+        background: $background-todo-color;
         padding: 10px;
         border-radius: 5px;
         margin-bottom: 10px;
@@ -36,7 +32,7 @@ $text-color: #333;
         text-align: left;
 
         &:hover {
-            background: color.adjust($background-color, $lightness: -5%);
+            background: color.adjust($background-todo-color, $lightness: -5%);
         }
     }
 

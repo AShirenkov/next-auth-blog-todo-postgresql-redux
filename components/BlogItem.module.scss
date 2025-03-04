@@ -1,11 +1,13 @@
+@import '@/styles/colors';
+
 .blog-item {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid $blog-item-border-color;
     border-radius: 4px;
     transition: background 0.2s ease;
 
     &:hover {
-        background: #f9f9f9;
+        background: $background-color;
     }
 
     &__title {
@@ -13,7 +15,7 @@
 
         a {
             text-decoration: none;
-            color: #0070f3;
+            color: $blog-title-color;
 
             &:hover {
                 text-decoration: underline;

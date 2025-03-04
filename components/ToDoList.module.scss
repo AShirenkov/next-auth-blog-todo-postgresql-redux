@@ -1,15 +1,11 @@
 @use "sass:color";
-
-$primary-color: #4caf50;
-$danger-color: #e74c3c;
-$background-color: #f4f4f4;
-$text-color: #333;
+@import '@/styles/colors';
 
 .todo {
     max-width: 100%px;
     margin: 40px auto;
     padding: 20px;
-    background: white;
+    background: $secondary-color;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
     text-align: center;
@@ -34,7 +30,6 @@ $text-color: #333;
         border-radius: 5px;
         outline: none;
 
-
         &:focus {
             border-color: color.adjust($primary-color, $lightness: -10%);
         }
@@ -50,7 +45,7 @@ $text-color: #333;
 
         &_add {
             background: $primary-color;
-            color: white;
+            color: $secondary-color;
 
             &:hover {
                 background: color.adjust($primary-color, $lightness: -10%);
@@ -65,7 +60,7 @@ $text-color: #333;
 
     &__empty-message {
         font-size: 18px;
-        color: grey;
+        color: $text-color;
         margin-top: 20px;
     }
 }

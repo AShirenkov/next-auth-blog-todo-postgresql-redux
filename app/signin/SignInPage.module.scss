@@ -1,3 +1,5 @@
+@import '@/styles/colors';
+
 .sign-in-page {
     display: flex;
     flex-direction: column;
@@ -7,11 +9,11 @@
 
     &__title {
         font-size: 2rem;
-        color: #333;
+        color: $title-text-color;
     }
 
     &__divider {
         font-size: 1rem;
-        color: #666;
+        color: $text-color;
     }
 }

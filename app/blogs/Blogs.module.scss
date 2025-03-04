@@ -1,3 +1,5 @@
+@import '@/styles/colors';
+
 .blogs {
     max-width: 100%;
     margin: 0 auto;
@@ -12,7 +14,7 @@
         width: 100%;
         padding: 8px;
         margin-bottom: 10px;
-        border: 1px solid #ccc;
+        border: 1px solid $blog-item-border-color;
         border-radius: 4px;
     }
 
@@ -23,15 +25,15 @@
     }
 
     &__empty {
-        color: #999;
+        color: $text-color;
         font-style: italic;
     }
 
     &__loading {
-        color: #0070f3;
+        color: $blog-title-color;
     }
 
     &__error {
-        color: red;
+        color: $danger-color;
     }
 }
