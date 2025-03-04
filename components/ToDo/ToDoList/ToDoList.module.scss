@@ -1,18 +1,18 @@
 @use "sass:color";
-@import '@/styles/colors';
+@use '@/styles/colors' as colors;
 
 .todo {
     max-width: 100%px;
     margin: 40px auto;
     padding: 20px;
-    background: $secondary-color;
+    background: colors.$secondary-color;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
     text-align: center;
 
     &__title {
         font-size: 24px;
-        color: $primary-color;
+        color: colors.$primary-color;
         margin-bottom: 20px;
     }
 
@@ -26,12 +26,12 @@
         flex: 1;
         padding: 10px;
         font-size: 16px;
-        border: 2px solid $primary-color;
+        border: 2px solid colors.$primary-color;
         border-radius: 5px;
         outline: none;
 
         &:focus {
-            border-color: color.adjust($primary-color, $lightness: -10%);
+            border-color: color.adjust(colors.$primary-color, $lightness: -10%);
         }
     }
 
@@ -44,11 +44,11 @@
         transition: background 0.3s ease;
 
         &_add {
-            background: $primary-color;
-            color: $secondary-color;
+            background: colors.$primary-color;
+            color: colors.$secondary-color;
 
             &:hover {
-                background: color.adjust($primary-color, $lightness: -10%);
+                background: color.adjust(colors.$primary-color, $lightness: -10%);
             }
         }
     }
@@ -60,7 +60,7 @@
 
     &__empty-message {
         font-size: 18px;
-        color: $text-color;
+        color: colors.$text-color;
         margin-top: 20px;
     }
 }

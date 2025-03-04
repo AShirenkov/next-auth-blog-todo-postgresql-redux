@@ -1,23 +1,23 @@
-@import '@/styles/colors';
+@use '@/styles/colors' as colors;
 
 .home {
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
   text-align: center;
-  background: $background-color;
+  background: colors.$background-color;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
 
   &__title {
     font-size: 2rem;
-    color: $title-text-color;
+    color: colors.$title-text-color;
   }
 
   &__description {
     margin-top: 10px;
     font-size: 1.2rem;
-    color: $text-color;
+    color: colors.$text-color;
   }
 
   &__list {

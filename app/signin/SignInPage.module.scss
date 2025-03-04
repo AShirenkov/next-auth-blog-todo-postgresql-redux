@@ -1,4 +1,4 @@
-@import '@/styles/colors';
+@use '@/styles/colors' as colors;
 
 .sign-in-page {
     display: flex;
@@ -9,11 +9,11 @@
 
     &__title {
         font-size: 2rem;
-        color: $title-text-color;
+        color: colors.$title-text-color;
     }
 
     &__divider {
         font-size: 1rem;
-        color: $text-color;
+        color: colors.$text-color;
     }
 }

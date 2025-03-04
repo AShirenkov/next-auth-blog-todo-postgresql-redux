@@ -1,4 +1,4 @@
-@import '@/styles/colors';
+@use '@/styles/colors' as colors;
 
 .profile {
     display: flex;
@@ -17,7 +17,7 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        background: $background-color;
+        background: colors.$background-color;
         padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
@@ -30,20 +30,20 @@
         height: 80px;
         border-radius: 50%;
         object-fit: cover;
-        border: 2px solid $signup-button-color;
+        border: 2px solid colors.$signup-button-color;
 
         &_placeholder {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: $background-color;
+            background: colors.$background-color;
         }
     }
 
     &__icon {
         width: 80px;
         height: 80px;
-        color: $text-color;
+        color: colors.$text-color;
     }
 
     &__info {
@@ -59,6 +59,6 @@
 
     &__email {
         font-size: 1rem;
-        color: $text-color
+        color: colors.$text-color
     }
 }

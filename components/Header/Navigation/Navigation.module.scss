@@ -1,10 +1,10 @@
-@import '@/styles/colors';
+@use '@/styles/colors' as colors;
 
 .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $background-navigation-color;
+    background-color: colors.$background-navigation-color;
 
     &__list {
         list-style: none;

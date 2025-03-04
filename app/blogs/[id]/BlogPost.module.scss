@@ -1,4 +1,4 @@
-@import '@/styles/colors';
+@use '@/styles/colors' as colors;
 
 .blog-post {
     max-width: 100%;
@@ -8,7 +8,7 @@
     &__title {
         font-size: 24px;
         margin-bottom: 10px;
-        color: $blog-title-color;
+        color: colors.$blog-title-color;
     }
 
     &__body {
@@ -17,6 +17,6 @@
     }
 
     .error {
-        color: $danger-color;
+        color: colors.$danger-color;
     }
 }

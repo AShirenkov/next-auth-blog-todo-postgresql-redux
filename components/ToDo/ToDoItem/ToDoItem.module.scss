@@ -1,5 +1,5 @@
 @use "sass:color";
-@import '@/styles/colors';
+@use '@/styles/colors' as colors;
 
 .todo {
     &__button {
@@ -11,11 +11,11 @@
         transition: background 0.3s ease;
 
         &_delete {
-            background: $danger-color;
-            color: $secondary-color;
+            background: colors.$danger-color;
+            color: colors.$secondary-color;
 
             &:hover {
-                background: color.adjust($danger-color, $lightness: -10%);
+                background: color.adjust(colors.$danger-color, $lightness: -10%);
             }
         }
     }
@@ -24,7 +24,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: $background-todo-color;
+        background: colors.$background-todo-color;
         padding: 10px;
         border-radius: 5px;
         margin-bottom: 10px;
@@ -32,13 +32,13 @@
         text-align: left;
 
         &:hover {
-            background: color.adjust($background-todo-color, $lightness: -5%);
+            background: color.adjust(colors.$background-todo-color, $lightness: -5%);
         }
     }
 
     &__text {
         font-size: 16px;
-        color: $text-color;
+        color: colors.$text-color;
         flex: 1;
     }
 }
