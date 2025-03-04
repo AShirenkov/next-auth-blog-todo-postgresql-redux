@@ -14,6 +14,8 @@ This project is a full-stack web application built with **Next.js**, **TypeScrip
 - **PostgreSQL**: A powerful relational database to store user and ToDo data, with **Prisma ORM** for database interaction.
 - **SASS Styling**: Styling using SASS for easier CSS management.
 - **Private Pages**: Restricted access to the ToDoList and Profile pages for authenticated users only.
+- **Testing with Jest**: Unit and integration tests using Jest.
+- **Husky & Lint-Staged**: Pre-commit and pre-push hooks to enforce code quality.
 
 ---
 
@@ -27,7 +29,8 @@ This project is a full-stack web application built with **Next.js**, **TypeScrip
 - **PostgreSQL**: A powerful relational database to store user and ToDo data.
 - **SASS**: For styling the application.
 - **Docker**: For PostgreSQL database containerization.
-- **Jest**: Testing framework for running unit and integration tests, used for testing Zustand stores and API interactions.
+- **Jest**: For writing and running tests.
+- **JHusky & Lint-Staged**: For pre-commit and - \*\*pre-push hooks.
 
 ---
 
