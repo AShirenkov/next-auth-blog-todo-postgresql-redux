@@ -11,14 +11,13 @@
             color: #1abc9c;
         }
 
-        &:active {
-            color: #e74c3c;
-        }
 
+
+        &:active,
         &_active {
             color: #e74c3c;
         }
 
-    }
 
+    }
 }

@@ -7,22 +7,21 @@ import styles from './NavItem.module.scss';
 
 const b = block(styles);
 
-type NavItemProps = {
+interface NavItemProps {
   href: string;
   label: string;
   onClick?: () => void;
-};
+}
 
 const NavItem = ({ href, label, onClick }: NavItemProps) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
 
   return (
     <li className={b('')}>
       <Link
         href={href}
         onClick={onClick}
-        className={isActive ? b('link', { active: true }) : b('link')}
+        className={b('link', { active: pathname === href })}
       >
         {label}
       </Link>

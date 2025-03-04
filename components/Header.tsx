@@ -2,7 +2,7 @@
 
 import { Navigation } from './Navigation';
 
-const navItems = [
+const NAV_ITEMS = [
   {
     label: 'Home',
     href: '/',
@@ -16,7 +16,7 @@ const navItems = [
 export function Header() {
   return (
     <header>
-      <Navigation navLinks={navItems} />
+      <Navigation navLinks={NAV_ITEMS} />
     </header>
   );
 }

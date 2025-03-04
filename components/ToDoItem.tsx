@@ -3,11 +3,11 @@ import styles from './ToDoItem.module.scss';
 
 const b = block(styles);
 
-type ToDoItemProps = {
+interface ToDoItemProps {
   id: string;
   text: string;
   onDelete: (id: string) => void;
-};
+}
 
 export default function ToDoItem({ id, text, onDelete }: ToDoItemProps) {
   return (

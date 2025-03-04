@@ -7,14 +7,14 @@ import styles from './Navigation.module.scss';
 
 const b = block(styles);
 
-type NavLink = {
+interface NavLink {
   label: string;
   href: string;
-};
+}
 
-type Props = {
+interface Props {
   navLinks: NavLink[];
-};
+}
 
 const Navigation = ({ navLinks }: Props) => {
   const session = useSession();

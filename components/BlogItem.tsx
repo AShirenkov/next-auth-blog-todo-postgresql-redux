@@ -3,10 +3,10 @@ import block from 'bem-css-modules';
 
 import styles from './BlogItem.module.scss';
 
-type BlogItemProps = {
+interface BlogItemProps {
   id: number;
   title: string;
-};
+}
 
 export default function BlogItem({ id, title }: BlogItemProps) {
   const b = block(styles);
