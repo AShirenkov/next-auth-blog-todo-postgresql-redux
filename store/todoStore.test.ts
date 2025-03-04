@@ -41,7 +41,7 @@ describe('useTodoStore', () => {
 
     (global.fetch as jest.Mock).mockResolvedValueOnce({});
 
-    useTodoStore.getState().deleteTodo('1');
+    useTodoStore.getState().deleteTodo('2');
 
     await waitFor(() => {
       expect(useTodoStore.getState().todos).toEqual([]);
