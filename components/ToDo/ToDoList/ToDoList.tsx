@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTodoStore } from '@/store/useTodoStore';
 import block from 'bem-css-modules';
 import styles from './ToDoList.module.scss';
-import ToDoItem from './ToDoItem';
+import ToDoItem from '../ToDoItem/ToDoItem';
 
 const b = block(styles);
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { signOut, useSession } from 'next-auth/react';
-import { NavItem } from './NavItem'; // Импортируем компонент NavItem
+import { NavItem } from '../NavItem/NavItem';
 import block from 'bem-css-modules';
 import styles from './Navigation.module.scss';
 

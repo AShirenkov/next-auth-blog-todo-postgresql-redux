@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useBlogStore } from '@/store/useBlogStore';
 import block from 'bem-css-modules';
-import BlogItem from '@/components/BlogItem';
+import BlogItem from '@/components/Blogs/BlogItem/BlogItem';
 import styles from './Blogs.module.scss';
 
 const b = block(styles);

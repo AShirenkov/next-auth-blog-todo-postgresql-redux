@@ -1,4 +1,4 @@
-import ToDoList from '@/components/ToDoList';
+import ToDoList from '@/components/ToDo/ToDoList/ToDoList';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
