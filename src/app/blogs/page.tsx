@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useBlogStore } from '@/entities/blog/model/useBlogStore';
 import block from 'bem-css-modules';
-import BlogItem from '@/components/Blogs/BlogItem/BlogItem';
-import styles from './Blogs.module.scss';
+import BlogItem from '@/entities/blog/ui/BlogItem/BlogItem';
+import styles from './page.module.scss';
 
 const b = block(styles);
 

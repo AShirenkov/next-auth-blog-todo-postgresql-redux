@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { fetchBlogs } from '@/shared/api/blogApi';
+import { fetchBlogs } from '@/entities/blog/api/blogApi';
 
 export interface Blog {
   id: number;

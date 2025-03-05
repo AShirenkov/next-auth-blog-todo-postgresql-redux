@@ -1,0 +1,23 @@
+@use '@/shared/config/colors' as colors;
+
+.nav-item {
+    font-size: 16px;
+
+    &__link {
+        color: colors.$secondary-color;
+        text-decoration: none;
+        padding: 8px;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: colors.$primary-color;
+        }
+
+        &:active,
+        &_active {
+            color: colors.$primary-color;
+        }
+
+
+    }
+}

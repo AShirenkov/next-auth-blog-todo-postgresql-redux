@@ -3,13 +3,19 @@
 import { useParams } from 'next/navigation';
 import { useBlogStore } from '@/entities/blog/model/useBlogStore';
 import block from 'bem-css-modules';
-import styles from './BlogPost.module.scss';
+import styles from './page.module.scss';
 
 export default function BlogPost() {
   const b = block(styles);
-  const { id } = useParams();
+
+  const params = useParams();
+  const id = params?.id;
 
   const blogs = useBlogStore((state) => state.blogs);
+
+  if (!id || Array.isArray(id)) {
+    return <p className={b('error')}>Invalid blog ID</p>;
+  }
 
   const blog = blogs.find((b) => b.id === Number(id));
 

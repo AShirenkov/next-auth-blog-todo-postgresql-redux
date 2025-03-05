@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { fetchTodos, addTodo, deleteTodo } from '@/shared/api/todoApi';
+import { fetchTodos, addTodo, deleteTodo } from '@/entities/todo/api/todoApi';
 
 interface ToDo {
   id: string;

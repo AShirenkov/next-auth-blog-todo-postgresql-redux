@@ -1,0 +1,44 @@
+@use "sass:color";
+@use '@/shared/config/colors' as colors;
+
+.todo {
+    &__button {
+        padding: 10px 15px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &_delete {
+            background: colors.$danger-color;
+            color: colors.$secondary-color;
+
+            &:hover {
+                background: color.adjust(colors.$danger-color, $lightness: -10%);
+            }
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: colors.$background-todo-color;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        transition: background 0.3s ease;
+        text-align: left;
+
+        &:hover {
+            background: color.adjust(colors.$background-todo-color, $lightness: -5%);
+        }
+    }
+
+    &__text {
+        font-size: 16px;
+        color: colors.$text-color;
+        flex: 1;
+    }
+}

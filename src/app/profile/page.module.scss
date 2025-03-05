@@ -1,0 +1,64 @@
+@use '@/shared/config/colors' as colors;
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+
+    &__title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background: colors.$background-color;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+        width: 300px;
+        text-align: center;
+    }
+
+    &__avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid colors.$signup-button-color;
+
+        &_placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: colors.$background-color;
+        }
+    }
+
+    &__icon {
+        width: 80px;
+        height: 80px;
+        color: colors.$text-color;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__name {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    &__email {
+        font-size: 1rem;
+        color: colors.$text-color
+    }
+}

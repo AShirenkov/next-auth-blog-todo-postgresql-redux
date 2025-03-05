@@ -1,22 +1,23 @@
 import { waitFor } from '@testing-library/react';
 import { useBlogStore } from './useBlogStore';
+import fetchMock from 'jest-fetch-mock';
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () =>
-      Promise.resolve([
-        { id: 1, title: 'First blog', body: 'Content of the first blog' },
-        { id: 2, title: 'Second blog', body: 'Content of the second blog' },
-      ]),
-  })
-) as jest.Mock;
+fetchMock.enableMocks();
 
 describe('Zustand Blog Store tests', () => {
   beforeEach(() => {
     useBlogStore.setState({ blogs: [], filteredBlogs: [], status: 'idle' });
+    fetchMock.resetMocks();
   });
 
   it('should fetch blogs', async () => {
+    fetchMock.mockResponseOnce(
+      JSON.stringify([
+        { id: 1, title: 'First blog', body: 'Content of the first blog' },
+        { id: 2, title: 'Second blog', body: 'Content of the second blog' },
+      ])
+    );
+
     useBlogStore.getState().fetchBlogs();
 
     await waitFor(() => {
@@ -49,9 +50,7 @@ describe('Zustand Blog Store tests', () => {
   });
 
   it('should handle failed blog fetch', async () => {
-    global.fetch = jest.fn(() =>
-      Promise.reject('Error fetching blogs')
-    ) as jest.Mock;
+    fetchMock.mockRejectOnce(new Error('Error fetching blogs'));
 
     useBlogStore.getState().fetchBlogs();
 

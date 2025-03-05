@@ -1,0 +1,25 @@
+@use '@/shared/config/colors' as colors;
+
+.blog-item {
+    padding: 10px;
+    border: 1px solid colors.$blog-item-border-color;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: colors.$background-color;
+    }
+
+    &__title {
+        font-size: 18px;
+
+        a {
+            text-decoration: none;
+            color: colors.$blog-title-color;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

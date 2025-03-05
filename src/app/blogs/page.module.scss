@@ -1,0 +1,39 @@
+@use '@/shared/config/colors' as colors;
+
+.blogs {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+
+    &__title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    &__search {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid colors.$blog-item-border-color;
+        border-radius: 4px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__empty {
+        color: colors.$text-color;
+        font-style: italic;
+    }
+
+    &__loading {
+        color: colors.$blog-title-color;
+    }
+
+    &__error {
+        color: colors.$danger-color;
+    }
+}

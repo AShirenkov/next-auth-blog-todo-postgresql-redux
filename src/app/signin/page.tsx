@@ -1,8 +1,8 @@
-import { GoogleButton } from '@/components/SignIn/GoogleButton/GoogleButton';
-import { SignInForm } from '@/components/SignIn/SignInForm/SignInForm';
+import { GoogleButton } from '@/shared/ui/GoogleButton/GoogleButton';
+import { SignInForm } from '@/features/auth/ui/SignInForm';
 import { Suspense } from 'react';
 import block from 'bem-css-modules';
-import styles from './SignInPage.module.scss';
+import styles from './page.module.scss';
 
 const b = block(styles);
 

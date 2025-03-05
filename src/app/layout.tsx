@@ -1,7 +1,7 @@
-import { Providers } from '@/components/Providers';
-import '@/styles/globals.css';
-import { Footer } from '@/components/Footer/Footer';
-import { Header } from '@/components/Header/Header';
+import { Providers } from '@/shared/providers/Providers';
+import '@/shared/config/globals.css';
+import { Footer } from '@/widgets/layout/Footer/Footer';
+import { Header } from '@/widgets/layout/Header/Header';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
