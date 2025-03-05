@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import { useBlogStore } from '@/store/useBlogStore';
 import block from 'bem-css-modules';
-import styles from './BlogPost.module.scss';
+import styles from './page.module.scss';
 
 export default function BlogPost() {
   const b = block(styles);

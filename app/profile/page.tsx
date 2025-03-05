@@ -2,7 +2,7 @@ import { authConfig } from '@/configs/auth';
 import { getServerSession } from 'next-auth';
 import Image from 'next/image';
 import block from 'bem-css-modules';
-import styles from './Profile.module.scss';
+import styles from './page.module.scss';
 import type { Metadata } from 'next';
 
 const b = block(styles);
