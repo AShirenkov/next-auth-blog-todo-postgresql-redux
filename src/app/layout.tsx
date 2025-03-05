@@ -1,0 +1,28 @@
+import { Providers } from '@/components/Providers';
+import '@/styles/globals.css';
+import { Footer } from '@/components/Footer/Footer';
+import { Header } from '@/components/Header/Header';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'My test App',
+  description: 'Generated test app',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="root-layout">
+        <Providers>
+          <Header />
+          <main className="container">{children}</main>
+          <Footer />
+        </Providers>
+      </body>
+    </html>
+  );
+}
