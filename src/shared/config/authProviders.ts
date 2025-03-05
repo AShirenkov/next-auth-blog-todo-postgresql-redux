@@ -1,6 +1,6 @@
 import GoogleProvider from 'next-auth/providers/google';
 import Credentials from 'next-auth/providers/credentials';
-import { users } from '@/data/users';
+import { users } from '@/shared/config/users';
 import type { NextAuthOptions, User } from 'next-auth';
 
 export const authProviders: NextAuthOptions['providers'] = [
